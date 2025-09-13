@@ -62,7 +62,7 @@ Server and device fleet for collecting, decoding and displaying in real time tel
 * Live dashboards: transaction logs per machine, wins/losses, total insertions, player-machine binding and current session.
 * Operational tools: device health monitoring, reconciliation reports, event alerts and historical analytics.
 * Reliable operation in isolated (air-gapped) environments.
-* > >= 36 machines in operation, response time <1s (request -> information retrieval -> update in the web application).
+* 36 machines in operation, response time <1s (request -> information retrieval -> update in the web application).
 
 ## Business impact
 

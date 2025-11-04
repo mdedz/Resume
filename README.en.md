@@ -22,7 +22,7 @@ Python · Django · FastAPI · Flask · WebSockets · Docker · Docker Compose �
 
 ## ⭐ Key projects
 
-> *Only the SAS communication module (Project 3) and the client part of Project 2 are public in this repository. The server part of Project 2 and the other projects are proprietary client work and closed under NDA, but all are in active production. Where possible — demo videos and screenshots are attached.*
+> *Only the SAS communication module (Project 3), the client part of Project 2 and Rust project are public in this repository. The server part of Project 2 and the other projects are proprietary client work and closed under NDA, but all are in active production. Where possible — demo videos and screenshots are attached.*
 
 # 1) Metro TV — remote control and advertising management on TVs
 

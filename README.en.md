@@ -16,7 +16,7 @@ I design and deliver **end-to-end IoT and backend solutions**: from low-level de
 
 ## 🎯 Technologies
 
-Python · Django · FastAPI · Flask · WebSockets · Docker · Docker Compose · MSSQL · PostgreSQL · MySQL · SQLite · Redis · Git · GitHub Actions · GitLab CI · JavaScript · jQuery · Linux · Debian · Ubuntu · Bash · systemd · Nginx · Pandas · NumPy · Selenium · cron · ETL · Data pipelines · Data scraping · REST API · AsyncIO · IoT · Embedded Linux · Raspberry Pi · Orange Pi · ADB · Serial · SAS protocol · Device telemetry · Remote device management · Secure WebSocket channels · TLS/SSL · JWT · OAuth2 · Logging · Monitoring
+Python · Django · FastAPI · Flask · WebSockets · Docker · Docker Compose · MSSQL · PostgreSQL · MySQL · SQLite · Redis · Git · GitHub Actions · GitLab CI · JavaScript · jQuery · Linux · Debian · Ubuntu · Bash · systemd · Nginx · Pandas · NumPy · Selenium · cron · ETL · Data pipelines · Data scraping · REST API · AsyncIO · IoT · Embedded Linux · Raspberry Pi · Orange Pi · ADB · Serial · SAS protocol · Device telemetry · Remote device management · Secure WebSocket channels · TLS/SSL · JWT · OAuth2 · Logging · Monitoring · Rust · Tokio · Axum · rustls · rcgen
 
 ---
 
@@ -108,6 +108,40 @@ Automation and centralization of reconciliation replaced manual, error-prone pro
 * Scrapes case lists from the Belarusian court website, which lacks search by plaintiff/defendant.
 * Extracts relevant case data and automatically sends digests to a configured e-mail.
 * Deployed and used by a client.
+
+---
+
+# 6) P2P Chat — peer-to-peer networking demo (Rust + Tokio + Axum)
+
+## Short description
+
+Compact, dark-themed peer-to-peer chat and networking framework built in Rust using Tokio for async I/O and Axum for the web interface.
+Designed as a reusable foundation for distributed systems (chat, telemetry, mesh networks) with secure communication and clear actor-style architecture.
+
+## Key features
+
+* Peer-to-peer protocol over TCP with optional TLS (`rustls` + `rcgen`)
+* Actor-style `PeerManager` managing connections and message routing
+* REST and WebSocket API (`axum`):
+  * `/peers` — JSON list of active peers
+  * `/send` — broadcast messages via HTTP
+  * `/ws` — real-time WebSocket UI
+* Self-contained static frontend (dark theme) for quick testing
+* Auto-generated self-signed TLS certificates (with `--tls` flag)
+* Clean separation of modules: `server`, `client`, `network`, `protocol`, `web_api`
+* Logging via `tracing` with configurable verbosity (`RUST_LOG`)
+
+## Technical stack
+
+Rust · Tokio · Axum · rustls · rcgen · WebSockets · HTML/JS frontend
+
+## Purpose / outcomes
+
+* Built as a learning and demo project while exploring Rust’s async ecosystem.
+* Provides a foundation for future peer-to-peer or IoT mesh applications.
+* Emphasizes secure communication, modularity, and actor-based design.
+
+**[View on GitHub](https://github.com/mdedz/p2p_rust)**
 
 ---
 

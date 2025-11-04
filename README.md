@@ -25,7 +25,7 @@
 
 ## 🎯 Технологии
 
-Python · Django · FastAPI · Flask · WebSockets · Docker · Docker Compose · MSSQL · PostgreSQL · MySQL · SQLite · Redis · Git · GitHub Actions · GitLab CI · JavaScript · jQuery · Linux · Debian · Ubuntu · Bash · systemd · Nginx · Pandas · NumPy · Selenium · cron · ETL · Data pipelines · Data scraping · REST API · AsyncIO · IoT · Embedded Linux · Raspberry Pi · Orange Pi · ADB · Serial · SAS protocol · Device telemetry · Remote device management · Secure WebSocket channels · TLS/SSL · JWT · OAuth2 · Logging · Monitoring
+Python · Django · FastAPI · Flask · WebSockets · Docker · Docker Compose · MSSQL · PostgreSQL · MySQL · SQLite · Redis · Git · GitHub Actions · GitLab CI · JavaScript · jQuery · Linux · Debian · Ubuntu · Bash · systemd · Nginx · Pandas · NumPy · Selenium · cron · ETL · Data pipelines · Data scraping · REST API · AsyncIO · IoT · Embedded Linux · Raspberry Pi · Orange Pi · ADB · Serial · SAS protocol · Device telemetry · Remote device management · Secure WebSocket channels · TLS/SSL · JWT · OAuth2 · Logging · Monitoring · Rust · Tokio · Axum · rustls · rcgen
 
 ---
 
@@ -112,15 +112,37 @@ Python · Django · FastAPI · Flask · WebSockets · Docker · Docker Compose �
 
 ---
 
-# 5) Скрапер судов Беларуси + уведомления по e‑mail
+# 5) P2P Chat — демонстрационный проект одноранговой сети (Rust + Tokio + Axum)
 
-## Что делает
+## Краткое описание
 
-* Скрейпит списки дел с сайта белорусского суда, у которого отсутствует поиск по истцам/ответчикам.
-* Извлекает релевантные данные по делам и автоматически рассылает дайджесты на настроенный e‑mail.
-* Поставлен и используется у клиента.
+Компактный, минималистичный и выполненный в тёмной теме фреймворк однорангового (peer-to-peer) чата и сетевого взаимодействия, написанный на Rust с использованием Tokio для асинхронного ввода-вывода и Axum для веб-интерфейса.
+Создан как переиспользуемая основа для распределённых систем (чат, телеметрия, mesh-сети) с безопасной коммуникацией и акторной архитектурой.
 
-**Технологии:** Python, Selenium, headless Chrome, cron, SMTP
+## Ключевые возможности
+
+* Одноранговый протокол поверх TCP с опциональным шифрованием TLS (`rustls` + `rcgen`);
+* Актор-подобный `PeerManager` для управления соединениями и маршрутизации сообщений;
+* REST и WebSocket API (`axum`):
+  * `/peers` — JSON-список активных пиров;
+  * `/send` — рассылка сообщений через HTTP;
+  * `/ws` — WebSocket-интерфейс в реальном времени;
+* Самодостаточный статический фронтенд (тёмная тема) для быстрого тестирования;
+* Автоматическая генерация самоподписанных TLS-сертификатов (флаг `--tls`);
+* Чёткое разделение модулей: `server`, `client`, `network`, `protocol`, `web_api`;
+* Логирование через `tracing` с настраиваемой подробностью (`RUST_LOG`).
+
+## Технологический стек
+
+Rust · Tokio · Axum · rustls · rcgen · WebSockets · HTML/JS frontend
+
+## Цель / результат
+
+* Разработан как учебный и демонстрационный проект для изучения асинхронной экосистемы Rust;
+* Может служить основой для будущих peer-to-peer или IoT mesh-приложений;
+* Делает упор на безопасную коммуникацию, модульность и акторную архитектуру.
+
+**[Посмотреть на GitHub](https://github.com/mdedz/p2p_rust)**
 
 ---
 
@@ -130,10 +152,6 @@ Python · Django · FastAPI · Flask · WebSockets · Docker · Docker Compose �
 
 ![Dashboard Screenshot](./blackjack/Screenshot_1.jpg)
 ![Dashboard Screenshot](./blackjack/Screenshot_7.jpg)
-
-### Скрапер судов
-
-![Dashboard Screenshot](./court/Screenshot.webp)
 
 ---
 

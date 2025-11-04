@@ -101,17 +101,7 @@ Automation and centralization of reconciliation replaced manual, error-prone pro
 
 ---
 
-# 5) Belarusian Courts Scraper + email notifications
-
-## What it does
-
-* Scrapes case lists from the Belarusian court website, which lacks search by plaintiff/defendant.
-* Extracts relevant case data and automatically sends digests to a configured e-mail.
-* Deployed and used by a client.
-
----
-
-# 6) P2P Chat — peer-to-peer networking demo (Rust + Tokio + Axum)
+# 5) P2P Chat — peer-to-peer networking demo (Rust + Tokio + Axum)
 
 ## Short description
 
@@ -151,10 +141,6 @@ Rust · Tokio · Axum · rustls · rcgen · WebSockets · HTML/JS frontend
 
 ![Dashboard Screenshot](./blackjack/Screenshot_1.jpg)
 ![Dashboard Screenshot](./blackjack/Screenshot_7.jpg)
-
-### Courts scraper
-
-![Dashboard Screenshot](./court/Screenshot.webp)
 
 ---
 

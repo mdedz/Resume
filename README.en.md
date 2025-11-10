@@ -1,152 +1,148 @@
+
 # 👋 Ilya — Backend & IoT Engineer
 
 [Русский](./README.md)
 
-**Backend & Embedded** engineer with **5+ years of experience**.
-I design and deliver **end-to-end solutions**: from COM/Serial agents and embedded Linux devices (Raspberry/Orange Pi) to scalable backends on Python/Django/FastAPI.
-Experience in production operation of device fleets (30–50+ units), real-time telemetry, secure WebSocket channels and containerized deployments (Docker). All projects are delivered to clients and **running in production**.
+**Backend & Embedded Engineer** with **5+ years of hands-on experience** in designing and deploying **end-to-end systems** — from low-level device communication (Serial, SAS, ADB) to scalable, containerized backend infrastructures.
+I build **production-grade solutions** that integrate IoT devices, real-time telemetry, and modern web platforms — all with a focus on reliability, observability, and maintainability.
 
 ---
 
-## 🔭 Brief
+## 🔭 Summary
 
-I design and deliver **end-to-end IoT and backend solutions**: from low-level device communication (COM / SAS / ADB) to scalable Docker-backends and user-friendly admin panels. All projects in the portfolio were delivered to clients and **are running in production**.
-
----
-
-## 🎯 Technologies
-
-Python · Django · FastAPI · Flask · WebSockets · Docker · Docker Compose · MSSQL · PostgreSQL · MySQL · SQLite · Redis · Git · GitHub Actions · GitLab CI · JavaScript · jQuery · Linux · Debian · Ubuntu · Bash · systemd · Nginx · Pandas · NumPy · Selenium · cron · ETL · Data pipelines · Data scraping · REST API · AsyncIO · IoT · Embedded Linux · Raspberry Pi · Orange Pi · ADB · Serial · SAS protocol · Device telemetry · Remote device management · Secure WebSocket channels · TLS/SSL · JWT · OAuth2 · Logging · Monitoring · Rust · Tokio · Axum · rustls · rcgen
+I specialize in **IoT and backend engineering**, creating systems that seamlessly connect embedded hardware with robust backend services.
+From firmware communication protocols and data pipelines to responsive admin dashboards and CI/CD pipelines — every solution I design is **deployed and running in production** for real clients.
 
 ---
 
-## ⭐ Key projects
+## 🎯 Core Technologies
 
-> *Only the SAS communication module (Project 3), the client part of Project 2 and Rust project are public in this repository. The server part of Project 2 and the other projects are proprietary client work and closed under NDA, but all are in active production. Where possible — demo videos and screenshots are attached.*
-
-# 1) Metro TV — remote control and advertising management on TVs
-
-## Short description
-
-A platform for centralized management of Android TVs installed in the metro: allows remote control of devices, uploading and updating advertising campaigns, monitoring status and automating maintenance — all via a single web panel.
-
-## Key features
-
-* Full set of operations equivalent to a physical remote: power on/off (relay), source selection, volume control, playback control and keypress emulation.
-* Real-time telemetry: TV power status, client status, Ethernet status, selected source, current output source, volume level.
-* Secure bidirectional communication: encrypted and authenticated WebSocket channels between server and agents.
-* Screen preview and on-demand screenshots: the interface shows what is currently displayed on the device screen.
-* Maintenance tools: remote agent restart, log viewing, push updates and automatic recovery of malfunctioning clients.
-* Visual card editor: a flexible editor in the web app that allows building “cards” with data fields and action triggers for each TV unit.
-* Scalability: the system handles 150+ remote operations, system response time < 1.5s (request -> command execution on device -> update in the web application), with >= 47 devices in active operation.
-
-## Business impact
-
-* Deployment across many branches (metro stations) replaced manual, labor-intensive processes (technician trips) with remote management — saving dozens of hours and significantly reducing operating costs.
-* Support for updates and debugging in near-real time improved campaign uptime and increased reliability for advertisers.
-
-**[More about this project is available in my repository](https://github.com/mdedz/Metro-TV)**
+**Python** · Django · FastAPI · Flask · AsyncIO · WebSockets · Docker · Docker Compose · Linux (Debian/Ubuntu) · Nginx · systemd · Bash
+**Databases:** MSSQL · PostgreSQL · MySQL · SQLite · Redis
+**DevOps & CI/CD:** Git · GitHub Actions · GitLab CI
+**Frontend (utility level):** JavaScript · jQuery
+**Data & Automation:** Pandas · NumPy · Selenium · cron · ETL pipelines · Data scraping
+**IoT & Embedded:** Embedded Linux · Raspberry Pi · Orange Pi · Serial (UART/RS232) · SAS Protocol · ADB · Device telemetry · Secure WebSocket channels · TLS/SSL · JWT · OAuth2
+**Rust ecosystem:** Rust · Tokio · Axum · rustls · rcgen
+**Other:** Logging · Monitoring · Observability
 
 ---
 
-# 2) Casino Clubs Administration System
+## ⭐ Selected Projects
 
-## Short
-
-Server and device fleet for collecting, decoding and displaying in real time telemetry and transactions from offline slot machines. The system is installed in multiple casino branches and converts raw COM-packets (SAS protocol) into understandable business events for operators and finance teams.
-
-## Key features
-
-* Capture and decode slot machine messages over COM port (SAS protocol) in real time.
-* End-to-end pipeline: agent → WebSocket → Django server → MSSQL processing → admin panel.
-* Live dashboards: transaction logs per machine, wins/losses, total insertions, player-machine binding and current session.
-* Operational tools: device health monitoring, reconciliation reports, event alerts and historical analytics.
-* Reliable operation in isolated (air-gapped) environments.
-* 36 machines in operation, response time <1s (request -> information retrieval -> update in the web application).
-
-## Business impact
-
-Automation and centralization of reconciliation replaced manual, error-prone procedures — reducing audit time, improving revenue transparency and enabling rapid detection and response to anomalies.
-
-**[More about this project is available in my repository](https://github.com/mdedz/Casino-Administration)**
-
-**[Client part](https://github.com/mdedz/SASCollectorService)**
+> *Not all projects in this repository are public — several are proprietary client solutions protected under NDA.*
 
 ---
 
-# 3) SAS Communication Module
+### 1) Metro TV — Centralized Remote Control & Advertising Management for Android TVs
 
-## Description
+**Overview:**
+A production platform for centralized management of Android-based TVs deployed in metro stations. Enables remote control, live telemetry, content updates, and maintenance automation through a single web interface.
 
-* Full support for the SAS protocol for slot machines (command types R, S, M, G are supported).
-* Uses the `2F` command to start receiving data, extracts payload and saves it into an internal MSSQL database.
-* Synchronizes data from the internal DB to an external MSSQL instance used by the public panel.
-* Provides a listeners system: persistent listeners, one-time listeners, JSON-configurable command sets and a `Commands` class for programmatic use.
-* Robust connection handling: retries, reconnection logic and error handling.
-* Includes a DB connection module and support for custom jackpot/command handlers.
-* Implemented in Python and `Serial`.
+**Key features:**
 
-**[More about this project is available in my repository](https://github.com/mdedz/sas_comm_py)**
+* Full remote control — power relay, source selection, volume, playback, and key emulation.
+* Real-time telemetry: power state, connectivity, client health, source, and volume level.
+* Encrypted WebSocket channels for secure bidirectional communication.
+* Live screen previews and screenshots available on demand.
+* Remote maintenance: restart agents, view logs, perform OTA updates, recover faulty clients.
+* Visual card editor for creating flexible device control templates.
+* Proven scalability — handles 150+ simultaneous remote operations with <1.5 s end-to-end latency; actively managing 47+ devices in production.
 
----
+**Business impact:**
+Eliminated manual servicing trips, cutting operational costs and response times dramatically. Improved uptime of advertising campaigns and service reliability for advertisers.
 
-# 4) Old Analyzer — combinatorial analysis tool (restructuring)
-
-**Role:** implementation and maintenance (VB.NET)
-
-**What it does**
-
-* Desktop analytical tool implementing combinatorial algorithms to enumerate and evaluate possible combinations.
-* Delivered to the client and currently maintained in production.
+**[View repository →](https://github.com/mdedz/Metro-TV)**
 
 ---
 
-# 5) P2P Chat — peer-to-peer networking demo (Rust + Tokio + Axum)
+### 2) Casino Clubs Administration System
 
-## Short description
+**Overview:**
+Backend infrastructure and device network for collecting, decoding, and visualizing telemetry and transactions from offline slot machines.
+Deployed across multiple casino locations, converting raw COM/SAS data into structured financial and operational insights.
 
-Compact, dark-themed peer-to-peer chat and networking framework built in Rust using Tokio for async I/O and Axum for the web interface.
-Designed as a reusable foundation for distributed systems (chat, telemetry, mesh networks) with secure communication and clear actor-style architecture.
+**Key features:**
 
-## Key features
+* Real-time COM port data capture and decoding via SAS protocol.
+* End-to-end data flow: Agent → WebSocket → Django Server → MSSQL → Admin Panel.
+* Live dashboards: transaction logs, wins/losses, player sessions, device analytics.
+* Operational utilities: health monitoring, reconciliation reports, event alerts, and historical audit.
+* Stable operation in fully isolated (air-gapped) networks.
+* 36+ machines in production, <1 s end-to-end response time.
 
-* Peer-to-peer protocol over TCP with optional TLS (`rustls` + `rcgen`)
-* Actor-style `PeerManager` managing connections and message routing
-* REST and WebSocket API (`axum`):
-  * `/peers` — JSON list of active peers
-  * `/send` — broadcast messages via HTTP
-  * `/ws` — real-time WebSocket UI
-* Self-contained static frontend (dark theme) for quick testing
-* Auto-generated self-signed TLS certificates (with `--tls` flag)
-* Clean separation of modules: `server`, `client`, `network`, `protocol`, `web_api`
-* Logging via `tracing` with configurable verbosity (`RUST_LOG`)
+**Business impact:**
+Replaced manual, error-prone reconciliation with automated, transparent analytics. Reduced audit time, improved revenue tracking, and enabled instant anomaly detection.
 
-## Technical stack
-
-Rust · Tokio · Axum · rustls · rcgen · WebSockets · HTML/JS frontend
-
-## Purpose / outcomes
-
-* Built as a learning and demo project while exploring Rust’s async ecosystem.
-* Provides a foundation for future peer-to-peer or IoT mesh applications.
-* Emphasizes secure communication, modularity, and actor-based design.
-
-**[View on GitHub](https://github.com/mdedz/p2p_rust)**
+**[Server project →](https://github.com/mdedz/Casino-Administration)**
+**[Client agent →](https://github.com/mdedz/SASCollectorService)**
 
 ---
 
-## 📸 Media
+### 3) SAS Communication Module
 
-### Old Analyzer
+**Overview:**
+A robust Python library implementing full **SAS protocol** support for slot machine telemetry and control.
 
-![Dashboard Screenshot](./blackjack/Screenshot_1.jpg)
-![Dashboard Screenshot](./blackjack/Screenshot_7.jpg)
+**Features:**
+
+* Complete SAS command support (R, S, M, G).
+* Automatic data parsing via `2F` command and persistence to MSSQL.
+* Real-time synchronization between internal and external MSSQL instances.
+* Flexible listener system (persistent, one-shot, and JSON-configurable command sets).
+* Reliable reconnection logic, retries, and exception handling.
+* Extendable design — supports custom jackpot and command handlers.
+
+**Stack:** Python · Serial · MSSQL
+
+**[View repository →](https://github.com/mdedz/sas_comm_py)**
 
 ---
 
-## 🔐 Public / private policy
+### 4) Weather Query — Fast, Cached Django Service *(built in 4 days)* ☁️🌃
 
-* **Public:** SAS module, client part of the Casino project.
-* **Private:** project source code (under NDA).
+**Overview:**
+A small but production-ready Django application built in just 4 days. Fetches real-time weather data from OpenWeatherMap, caches results, logs queries, and exposes a CI-integrated, Dockerized environment.
+
+**Highlights:**
+
+* Caching with Redis — identical requests within 300 s served from cache.
+* Rate limiting per IP with HTTP 429 responses.
+* Query history with filters, pagination, and CSV export.
+* `/health/` endpoint — monitors DB, Redis, and external API latency.
+* Unit-tested critical paths (cache reuse, rate limiting, filtering).
+* Full production stack: Docker · docker-compose · Gunicorn · Nginx · GitHub Actions CI.
+
+**Stack:** Python 3.12 · Django 5.2 · PostgreSQL · Redis · Docker · Nginx · Gunicorn · GitHub Actions
+
+**Impact:**
+Demonstrates strong backend design principles — caching, observability, and CI/CD — in a minimal yet complete project.
+
+**[View repository →](https://github.com/mdedz/weather_app)**
+
+---
+
+### 5) P2P Chat — Peer-to-Peer Networking Demo (Rust + Tokio + Axum)
+
+**Overview:**
+A minimalist, dark-themed peer-to-peer chat and networking framework written in Rust.
+Built as a foundation for distributed systems (chat, telemetry, mesh networks) emphasizing security, modularity, and asynchronous design.
+
+**Features:**
+
+* Custom peer-to-peer protocol over TCP with optional TLS (rustls + rcgen).
+* Actor-like `PeerManager` for message routing and peer management.
+* REST + WebSocket API (Axum): `/peers`, `/send`, `/ws`.
+* Static HTML/JS frontend for quick interactive testing.
+* Auto-generated self-signed certificates (`--tls`).
+* Modular architecture: `server`, `client`, `network`, `protocol`, `web_api`.
+* Logging with `tracing` and configurable verbosity (`RUST_LOG`).
+
+**Stack:** Rust · Tokio · Axum · rustls · rcgen · WebSockets
+
+**Purpose:**
+Educational and demonstrational project exploring Rust’s async ecosystem — serves as a foundation for future secure P2P or IoT mesh applications.
+
+**[View repository →](https://github.com/mdedz/p2p_rust)**
 
 ---
